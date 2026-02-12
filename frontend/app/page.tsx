@@ -20,7 +20,7 @@ export default function HomePage() {
             overflow: 'hidden',
           }}
         >
-          <CanvasParticlesSection id="hero-particles" particleColor="rgba(255,255,255,0.35)" />
+          <CanvasParticlesSection id="hero-particles" />
           <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
             <h1
               style={{
@@ -113,7 +113,7 @@ export default function HomePage() {
             overflow: 'hidden',
           }}
         >
-          <CanvasParticlesSection id="features-particles" particleColor="rgba(255,255,255,0.35)" />
+          <CanvasParticlesSection id="features-particles" />
           <div style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}>
             <h2
               style={{

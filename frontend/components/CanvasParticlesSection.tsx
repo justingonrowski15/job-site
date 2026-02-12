@@ -5,7 +5,7 @@ import type CanvasParticlesType from 'canvasparticles-js';
 
 export default function CanvasParticlesSection({
   id,
-  particleColor = 'rgba(255,255,255,0.4)',
+  particleColor = 'rgba(255,255,255,0.12)',
   background = 'transparent',
 }: {
   id: string;
@@ -32,6 +32,8 @@ export default function CanvasParticlesSection({
           color: particleColor,
           ppm: 800,
           connectDistance: 120,
+          relSpeed: 0.2,
+          rotationSpeed: 0.5,
         },
         mouse: {
           interactionType: 0, // Off - less distraction for background
