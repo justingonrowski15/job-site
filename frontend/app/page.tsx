@@ -2,9 +2,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Newsletter from '@/components/Newsletter';
 import Image from 'next/image';
-import Link from 'next/link';
 import HeroSearch from '@/components/HeroSearch';
 import FAQAccordion from '@/components/FAQAccordion';
+import CanvasParticlesSection from '@/components/CanvasParticlesSection';
 
 export default function HomePage() {
   return (
@@ -20,14 +20,7 @@ export default function HomePage() {
             overflow: 'hidden',
           }}
         >
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23333' stroke-width='0.5'%3E%3Cpath d='M0 40h80M40 0v80'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23333'/%3E%3C/g%3E%3C/svg%3E")`,
-              opacity: 0.5,
-            }}
-          />
+          <CanvasParticlesSection id="hero-particles" particleColor="rgba(255,255,255,0.35)" />
           <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
             <h1
               style={{
@@ -120,14 +113,7 @@ export default function HomePage() {
             overflow: 'hidden',
           }}
         >
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23333' stroke-width='0.5'%3E%3Cpath d='M0 40h80M40 0v80'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23333'/%3E%3C/g%3E%3C/svg%3E")`,
-              opacity: 0.5,
-            }}
-          />
+          <CanvasParticlesSection id="features-particles" particleColor="rgba(255,255,255,0.35)" />
           <div style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}>
             <h2
               style={{
