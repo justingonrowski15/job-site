@@ -80,7 +80,7 @@ export default function Footer() {
                   <circle cx="12" cy="10" r="3" />
                 </svg>
               </span>
-              123 Business Street, Suite 100, New York, NY
+              Boynton Beach, FL 33436
             </p>
             <p style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 32, height: 32, borderRadius: '50%', backgroundColor: '#333', flexShrink: 0 }}>

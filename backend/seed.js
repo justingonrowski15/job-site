@@ -34,19 +34,29 @@ async function seed() {
       image TEXT
     )
   `);
+  db.run('DROP TABLE IF EXISTS jobs');
   db.run(`
-    CREATE TABLE IF NOT EXISTS jobs (
+    CREATE TABLE jobs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
       company_id INTEGER,
       employment_type TEXT,
       experience TEXT,
       image TEXT,
+      location TEXT,
+      work_location TEXT,
+      shift TEXT,
+      career_level TEXT,
+      positions TEXT,
+      degree TEXT,
+      apply_before TEXT,
+      date_posted TEXT,
+      description TEXT,
+      skills TEXT,
+      benefits TEXT,
       FOREIGN KEY (company_id) REFERENCES companies(id)
     )
   `);
-
-  db.run('DELETE FROM jobs');
   db.run('DELETE FROM companies');
   db.run('DELETE FROM users');
 
@@ -84,18 +94,42 @@ async function seed() {
     });
   }
 
+  const designerDesc = `A Designer plays a vital role in shaping the visual identity of a brand or product. They create user-focused designs for digital and print materials, ensuring consistency and appeal across all touchpoints. Designers collaborate closely with marketing, product, and development teams to deliver high-quality visuals for campaigns, websites, and user interfaces.`;
+  const designerSkills = JSON.stringify([
+    'Proficiency in tools like Adobe Photoshop, Illustrator, Figma, or Canva.',
+    'Strong sense of aesthetics, layout, and color balance.',
+    'Understanding of UX/UI principles is a plus.',
+    'Ability to work under tight deadlines and handle multiple projects.',
+    'Excellent communication and teamwork skills.',
+    "Bachelor's degree in Graphic Design, Visual Arts, or a related field (preferred).",
+  ]);
+  const designerBenefits = JSON.stringify([
+    { title: 'Competitive salary', desc: 'with performance-based incentives.', icon: 'salary' },
+    { title: 'Flexible working hours', desc: 'and hybrid work options.', icon: 'flexible' },
+    { title: 'Creative freedom', desc: 'to bring your ideas to life.', icon: 'creative' },
+    { title: 'Continuous learning', desc: 'through workshops and design tools access.', icon: 'learning' },
+    { title: 'Paid time off', desc: 'and annual leaves.', icon: 'pto' },
+    { title: 'Collaborative environment', desc: 'with exposure to diverse projects and clients.', icon: 'collab' },
+    { title: 'Career growth opportunities', desc: 'within a supportive creative team.', icon: 'career' },
+  ]);
+
   const jobs = [
-    ['Designers', companyMap['Weblinx Solution'] || 1, 'Full Time/Permanent', '3 Year', '/images/designer-job.jpg'],
-    ['Weight Loss', companyMap['Demo Ten'] || 2, 'Contract', '4 months', '/images/weight-job.jpg'],
-    ['Plumber', companyMap['Weblinx Solution'] || 1, 'Full-time', '3 Year', '/images/plumber-job.jpg'],
-    ['Web Development', companyMap['VPN Alex Connor'] || 8, 'Full-time', '5 Years', '/images/web development-job.jpeg'],
-    ['Full Stack Developer', companyMap['Eagan Dalton'] || 5, 'Full-time', '3 Year', '/images/fullstack developer-job.webp'],
-    ['Frontend developer', companyMap['Eagan Dalton'] || 5, 'Full-time', '3 Year', '/images/frontend-developer-job.webp'],
-    ['Devops Engineer', companyMap['Mohsin Employer'] || 6, 'Full-time', '3 Year', '/images/devops-engineer-job.png'],
-    ['MRI Technician', companyMap['DONALD THOMPSON'] || 7, 'Full-time', 'Entry', '/images/Mri-job.png'],
+    ['Designers', companyMap['Weblinx Solution'] || 1, 'Full Time/Permanent', '3 Year', '/images/designer-job.jpg',
+      '4 STAR HOTEL - beside DIP - Green Community Village - Dubai - United Arab Emirates',
+      'Farm House', 'morning', 'Experienced', '6', 'Intermediate', 'October 29, 2025', 'October 25, 2025',
+      designerDesc, designerSkills, designerBenefits],
+    ['Weight Loss', companyMap['Demo Ten'] || 2, 'Contract', '4 months', '/images/weight-job.jpg', null, null, null, null, null, null, null, null, null, null, null],
+    ['Plumber', companyMap['Weblinx Solution'] || 1, 'Full-time', '3 Year', '/images/plumber-job.jpg', null, null, null, null, null, null, null, null, null, null, null],
+    ['Web Development', companyMap['VPN Alex Connor'] || 8, 'Full-time', '5 Years', '/images/web development-job.jpeg', null, null, null, null, null, null, null, null, null, null, null],
+    ['Full Stack Developer', companyMap['Eagan Dalton'] || 5, 'Full-time', '3 Year', '/images/fullstack developer-job.webp', null, null, null, null, null, null, null, null, null, null, null],
+    ['Frontend developer', companyMap['Eagan Dalton'] || 5, 'Full-time', '3 Year', '/images/frontend-developer-job.webp', null, null, null, null, null, null, null, null, null, null, null],
+    ['Devops Engineer', companyMap['Mohsin Employer'] || 6, 'Full-time', '3 Year', '/images/devops-engineer-job.png', null, null, null, null, null, null, null, null, null, null, null],
+    ['MRI Technician', companyMap['DONALD THOMPSON'] || 7, 'Full-time', 'Entry', '/images/Mri-job.png', null, null, null, null, null, null, null, null, null, null, null],
   ];
 
-  const jobStmt = db.prepare('INSERT INTO jobs (title, company_id, employment_type, experience, image) VALUES (?, ?, ?, ?, ?)');
+  const jobStmt = db.prepare(`INSERT INTO jobs (title, company_id, employment_type, experience, image,
+    location, work_location, shift, career_level, positions, degree, apply_before, date_posted, description, skills, benefits)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
   jobs.forEach((j) => jobStmt.run(j));
   jobStmt.free();
 

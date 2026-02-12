@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Company = {
   id: number;
@@ -57,9 +58,10 @@ export default function CompanyGrid({ companies }: { companies: Company[] }) {
           >
             {company.description || 'No description available.'}
           </p>
-          <button
-            type="button"
+          <Link
+            href={`/companies/${company.id}`}
             style={{
+              display: 'inline-block',
               padding: '0.5rem 1.25rem',
               backgroundColor: '#2d2d2d',
               color: '#fff',
@@ -68,10 +70,11 @@ export default function CompanyGrid({ companies }: { companies: Company[] }) {
               fontSize: '0.875rem',
               fontWeight: 600,
               cursor: 'pointer',
+              textDecoration: 'none',
             }}
           >
             View Details
-          </button>
+          </Link>
         </div>
       ))}
     </div>

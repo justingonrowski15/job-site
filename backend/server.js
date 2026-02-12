@@ -45,6 +45,17 @@ async function initDb() {
         employment_type TEXT,
         experience TEXT,
         image TEXT,
+        location TEXT,
+        work_location TEXT,
+        shift TEXT,
+        career_level TEXT,
+        positions TEXT,
+        degree TEXT,
+        apply_before TEXT,
+        date_posted TEXT,
+        description TEXT,
+        skills TEXT,
+        benefits TEXT,
         FOREIGN KEY (company_id) REFERENCES companies(id)
       )
     `);
@@ -107,9 +118,55 @@ app.post('/api/auth/register', (req, res) => {
   res.status(201).json({ user });
 });
 
+app.get('/api/jobs/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  if (isNaN(id)) return res.status(400).json({ error: 'Invalid job ID' });
+  try {
+    let row;
+    try {
+      const stmt = db.prepare(`
+        SELECT j.id, j.title, j.employment_type, j.experience, j.image,
+               j.location, j.work_location, j.shift, j.career_level, j.positions, j.degree,
+               j.apply_before, j.date_posted, j.description, j.skills, j.benefits,
+               c.name as company_name, c.id as company_id
+        FROM jobs j
+        LEFT JOIN companies c ON j.company_id = c.id
+        WHERE j.id = ?
+      `);
+      stmt.bind([id]);
+      if (!stmt.step()) {
+        stmt.free();
+        return res.status(404).json({ error: 'Job not found' });
+      }
+      row = stmt.getAsObject();
+      stmt.free();
+    } catch (schemaErr) {
+      const stmt = db.prepare(`
+        SELECT j.id, j.title, j.employment_type, j.experience, j.image,
+               c.name as company_name, j.company_id
+        FROM jobs j
+        LEFT JOIN companies c ON j.company_id = c.id
+        WHERE j.id = ?
+      `);
+      stmt.bind([id]);
+      if (!stmt.step()) {
+        stmt.free();
+        return res.status(404).json({ error: 'Job not found' });
+      }
+      const base = stmt.getAsObject();
+      stmt.free();
+      row = { ...base, location: null, work_location: null, shift: null, career_level: null, positions: null, degree: null, apply_before: null, date_posted: null, description: null, skills: null, benefits: null };
+    }
+    res.json(row);
+  } catch (err) {
+    console.error('GET /api/jobs/:id error:', err);
+    res.status(500).json({ error: 'Failed to fetch job' });
+  }
+});
+
 app.get('/api/jobs', (req, res) => {
   const result = db.exec(`
-    SELECT j.id, j.title, j.employment_type, j.experience, j.image, c.name as company_name
+    SELECT j.id, j.title, j.employment_type, j.experience, j.image, c.name as company_name, j.company_id
     FROM jobs j
     LEFT JOIN companies c ON j.company_id = c.id
     ORDER BY j.id
@@ -121,8 +178,44 @@ app.get('/api/jobs', (req, res) => {
     experience: row[3],
     image: row[4],
     company_name: row[5],
+    company_id: row[6],
   })) : [];
   res.json(jobs);
+});
+
+app.get('/api/companies/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  if (isNaN(id)) return res.status(400).json({ error: 'Invalid company ID' });
+  try {
+    const companyStmt = db.prepare('SELECT id, name, description, image FROM companies WHERE id = ?');
+    companyStmt.bind([id]);
+    if (!companyStmt.step()) {
+      companyStmt.free();
+      return res.status(404).json({ error: 'Company not found' });
+    }
+    const cRow = companyStmt.getAsObject();
+    companyStmt.free();
+    const company = { id: cRow.id, name: cRow.name, description: cRow.description, image: cRow.image };
+
+    const jobsStmt = db.prepare(`
+      SELECT j.id, j.title, j.employment_type, j.experience, j.image, j.location, j.description
+      FROM jobs j
+      WHERE j.company_id = ?
+      ORDER BY j.id
+    `);
+    jobsStmt.bind([id]);
+    const jobs = [];
+    while (jobsStmt.step()) {
+      const row = jobsStmt.getAsObject();
+      jobs.push({ id: row.id, title: row.title, employment_type: row.employment_type, experience: row.experience, image: row.image, location: row.location, description: row.description });
+    }
+    jobsStmt.free();
+
+    res.json({ ...company, jobs, member_since: 'October 2025', email_verified: false, established_in: '2025' });
+  } catch (err) {
+    console.error('GET /api/companies/:id error:', err);
+    res.status(500).json({ error: 'Failed to fetch company' });
+  }
 });
 
 app.get('/api/companies', (req, res) => {

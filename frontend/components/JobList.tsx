@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Job = {
   id: number;
@@ -76,9 +77,10 @@ export default function JobList({ jobs }: { jobs: Job[] }) {
                 Experience: {job.experience}
               </span>
             </div>
-            <button
-              type="button"
+            <Link
+              href={`/jobs/${job.id}`}
               style={{
+                display: 'inline-block',
                 padding: '0.4rem 1rem',
                 backgroundColor: '#2d2d2d',
                 color: '#fff',
@@ -90,7 +92,7 @@ export default function JobList({ jobs }: { jobs: Job[] }) {
               }}
             >
               VIEW DETAILS
-            </button>
+            </Link>
           </div>
         </div>
       ))}
