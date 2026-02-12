@@ -5,7 +5,7 @@ import type CanvasParticlesType from 'canvasparticles-js';
 
 export default function CanvasParticlesSection({
   id,
-  particleColor = 'rgba(255,255,255,0.12)',
+  particleColor = 'rgba(255,255,255,0.1)',
   background = 'transparent',
 }: {
   id: string;
@@ -30,7 +30,7 @@ export default function CanvasParticlesSection({
         background,
         particles: {
           color: particleColor,
-          ppm: 800,
+          ppm: 200,
           connectDistance: 120,
           relSpeed: 0.2,
           rotationSpeed: 0.5,
