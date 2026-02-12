@@ -5,6 +5,7 @@ import Image from 'next/image';
 import HeroSearch from '@/components/HeroSearch';
 import FAQAccordion from '@/components/FAQAccordion';
 import CanvasParticlesSection from '@/components/CanvasParticlesSection';
+import TestimonialSlideshow from '@/components/TestimonialSlideshow';
 
 export default function HomePage() {
   return (
@@ -165,51 +166,7 @@ export default function HomePage() {
               What Are User Says{' '}
               <span style={{ backgroundColor: '#e5e5e5', padding: '0 0.25rem' }}>Feedback</span>
             </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
-              {[
-                { name: 'John Doe', title: 'Driving Student', avatar: '/images/avatar1.png' },
-                { name: 'Jane Doe', title: 'Driving Student', avatar: '/images/avatar2.jpg' },
-                { name: 'John Doe', title: 'Driving Student', avatar: '/images/avatar3.jpg' },
-              ].map((t, i) => (
-                <div
-                  key={i}
-                  style={{
-                    backgroundColor: '#fff',
-                    padding: '2rem',
-                    borderRadius: '8px',
-                    border: '1px solid #e5e5e5',
-                    position: 'relative',
-                  }}
-                >
-                  <div style={{ marginBottom: '1rem' }}>
-                    {'★'.repeat(5)}
-                  </div>
-                  <p style={{ marginBottom: '1.5rem', lineHeight: 1.6, color: '#444', fontSize: '0.9375rem' }}>
-                    I would definitely recommend seeking for advice if you get your lessons in Airport
-                    driving school, the first lessons to the last one lesson.
-                  </p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <img
-                      src={t.avatar}
-                      alt={t.name}
-                      width={40}
-                      height={40}
-                      style={{ borderRadius: '50%', objectFit: 'cover' }}
-                    />
-                    <div>
-                      <div style={{ fontWeight: 600, fontSize: '0.9375rem' }}>{t.name}</div>
-                      <div style={{ fontSize: '0.8125rem', color: '#666' }}>{t.title}</div>
-                    </div>
-                  </div>
-                  <span style={{ position: 'absolute', bottom: '1rem', right: '1rem', fontSize: '2rem', opacity: 0.2 }}>"</span>
-                </div>
-              ))}
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '2rem' }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#1a1a1a' }} />
-              <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#ccc' }} />
-              <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#ccc' }} />
-            </div>
+            <TestimonialSlideshow />
           </div>
         </section>
 
