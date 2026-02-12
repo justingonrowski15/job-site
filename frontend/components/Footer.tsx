@@ -48,7 +48,7 @@ export default function Footer() {
           <h4 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>Quick Links</h4>
           <ul style={{ listStyle: 'none' }}>
             <li style={{ marginBottom: '0.5rem' }}>
-              <Link href="#" style={{ color: '#fff', fontSize: '0.875rem' }}>Terms & Conditions</Link>
+              <Link href="/terms" style={{ color: '#fff', fontSize: '0.875rem' }}>Terms & Conditions</Link>
             </li>
             <li style={{ marginBottom: '0.5rem' }}>
               <Link href="#" style={{ color: '#fff', fontSize: '0.875rem' }}>Privacy Policy</Link>
