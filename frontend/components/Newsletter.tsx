@@ -12,7 +12,7 @@ export default function Newsletter() {
         padding: '3rem 4rem',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         gap: '2rem',
         flexWrap: 'wrap',
         position: 'relative',
