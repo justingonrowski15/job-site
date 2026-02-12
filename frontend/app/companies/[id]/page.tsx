@@ -50,7 +50,7 @@ export default async function CompanyDetailPage({ params }: { params: { id: stri
   return (
     <>
       <Header />
-      <main style={{ backgroundColor: '#f5f5f5', paddingBottom: '2rem' }}>
+      <main style={{ backgroundColor: '#f5f5f5' }}>
         {/* Hero */}
         <section
           style={{
