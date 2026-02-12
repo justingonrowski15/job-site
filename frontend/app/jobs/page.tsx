@@ -22,13 +22,13 @@ export default async function JobsPage() {
     // Fallback data when backend not running
     jobs = [
       { id: 1, title: 'Designers', company_name: 'Weblinx Solution', employment_type: 'Full Time/Permanent', experience: '3 Year', image: '/images/designer-job.jpg' },
-      { id: 2, title: 'Weight Losss', company_name: 'Demo Ten', employment_type: 'Dignissimos iusto ad', experience: '4 months', image: '/images/weight-job.jpg' },
+      { id: 2, title: 'Weight Loss', company_name: 'Demo Ten', employment_type: 'Contract', experience: '4 months', image: '/images/weight-job.jpg' },
       { id: 3, title: 'Plumber', company_name: 'Weblinx Solution', employment_type: 'Full-time', experience: '3 Year', image: '/images/plumber-job.jpg' },
       { id: 4, title: 'Web Development', company_name: 'VPN Alex Connor', employment_type: 'Full-time', experience: '5 Years', image: '/images/web development-job.jpeg' },
       { id: 5, title: 'Full Stack Developer', company_name: 'Eagan Dalton', employment_type: 'Full-time', experience: '3 Year', image: '/images/fullstack developer-job.webp' },
       { id: 6, title: 'Frontend developer', company_name: 'Eagan Dalton', employment_type: 'Full-time', experience: '3 Year', image: '/images/frontend-developer-job.webp' },
       { id: 7, title: 'Devops Engineer', company_name: 'Mohsin Employer', employment_type: 'Full-time', experience: '3 Year', image: '/images/devops-engineer-job.png' },
-      { id: 8, title: 'Mri job', company_name: 'DONALD THOMPSON', employment_type: 'Full-time', experience: 'Entry', image: '/images/Mri-job.png' },
+      { id: 8, title: 'MRI Technician', company_name: 'DONALD THOMPSON', employment_type: 'Full-time', experience: 'Entry', image: '/images/Mri-job.png' },
     ];
   }
 

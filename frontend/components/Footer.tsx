@@ -24,8 +24,8 @@ export default function Footer() {
             <span style={{ fontSize: '0.875rem', display: 'block' }}>STAFF SOURCE</span>
           </div>
           <p style={{ fontSize: '0.875rem', lineHeight: 1.6, color: '#b0b0b0' }}>
-            Jorem Ipsum Dolor Sit Amet, Consectetur Adipiscing elit. Nunc vulputate libero et
-            velit interdum, ac aliquet odio mattis.
+            Zenith Staff Source connects job seekers with leading employers. We streamline the
+            hiring process, from profile creation to placement.
           </p>
         </div>
 
@@ -45,16 +45,16 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>Quick Link</h4>
+          <h4 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>Quick Links</h4>
           <ul style={{ listStyle: 'none' }}>
             <li style={{ marginBottom: '0.5rem' }}>
-              <Link href="#" style={{ color: '#fff', fontSize: '0.875rem' }}>Terms & condition</Link>
+              <Link href="#" style={{ color: '#fff', fontSize: '0.875rem' }}>Terms & Conditions</Link>
             </li>
             <li style={{ marginBottom: '0.5rem' }}>
-              <Link href="#" style={{ color: '#fff', fontSize: '0.875rem' }}>Privacy policy</Link>
+              <Link href="#" style={{ color: '#fff', fontSize: '0.875rem' }}>Privacy Policy</Link>
             </li>
             <li style={{ marginBottom: '0.5rem' }}>
-              <Link href="#" style={{ color: '#fff', fontSize: '0.875rem' }}>Contact us</Link>
+              <Link href="#" style={{ color: '#fff', fontSize: '0.875rem' }}>Contact Us</Link>
             </li>
             <li style={{ marginBottom: '0.5rem' }}>
               <Link href="/" style={{ color: '#fff', fontSize: '0.875rem' }}>Home</Link>
@@ -66,7 +66,7 @@ export default function Footer() {
           <h4 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>Get In Touch</h4>
           <div style={{ fontSize: '0.875rem', lineHeight: 2 }}>
             <p>📞 123 456 789</p>
-            <p>📍 Vorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>📍 123 Business Street, Suite 100, New York, NY</p>
             <p>✉️ abc123@gmail.com</p>
           </div>
         </div>

@@ -151,7 +151,7 @@ export default function LoginPage() {
                   color: '#1a1a1a',
                 }}
               >
-                Forget password?
+                Forgot password?
               </Link>
               {error && (
                 <p style={{ color: '#c00', fontSize: '0.875rem', marginBottom: '1rem' }}>{error}</p>

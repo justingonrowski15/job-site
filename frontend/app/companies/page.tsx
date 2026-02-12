@@ -20,8 +20,8 @@ export default async function CompaniesPage() {
     companies = [
       { id: 1, name: 'Weblinx Solution', description: 'Leading provider of high-quality glass solutions for homes and businesses.', image: '/images/Weblinx Solution-company.png' },
       { id: 2, name: 'Demo Ten', description: 'We are a technology-driven company providing innovative IT solutions that empower business.', image: '/images/Demo Ten-company.jpg' },
-      { id: 3, name: 'John Doe', description: 'hi, i am employer and i hire talented individuals', image: '/images/John Doe-company.jpg' },
-      { id: 4, name: 'Alex Connor', description: 'Vero omnis exercitat', image: '/images/Alex Connor-company.webp' },
+      { id: 3, name: 'John Doe', description: 'I am an employer and I hire talented individuals', image: '/images/John Doe-company.jpg' },
+      { id: 4, name: 'Alex Connor', description: 'Innovative solutions for modern businesses', image: '/images/Alex Connor-company.webp' },
       { id: 5, name: 'Eagan Dalton', description: 'Technology and innovation company', image: '/images/Eagan Dalton-company.webp' },
       { id: 6, name: 'Mohsin Employer', description: 'Growing tech company seeking talent', image: '/images/Mohsin Employer-company.png' },
       { id: 7, name: 'DONALD THOMPSON', description: 'Professional staffing solutions', image: '/images/DONALD THOMPSON-company.jpg' },

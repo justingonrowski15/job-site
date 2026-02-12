@@ -62,8 +62,8 @@ async function seed() {
   const companies = [
     ['Weblinx Solution', 'Leading provider of high-quality glass solutions for homes and businesses.', '/images/Weblinx Solution-company.png'],
     ['Demo Ten', 'We are a technology-driven company providing innovative IT solutions that empower business.', '/images/Demo Ten-company.jpg'],
-    ['John Doe', 'hi, i am employer and i hire talented individuals', '/images/John Doe-company.jpg'],
-    ['Alex Connor', 'Vero omnis exercitat', '/images/Alex Connor-company.webp'],
+    ['John Doe', 'I am an employer and I hire talented individuals', '/images/John Doe-company.jpg'],
+    ['Alex Connor', 'Innovative solutions for modern businesses', '/images/Alex Connor-company.webp'],
     ['Eagan Dalton', 'Technology and innovation company', '/images/Eagan Dalton-company.webp'],
     ['Mohsin Employer', 'Growing tech company seeking talent', '/images/Mohsin Employer-company.png'],
     ['DONALD THOMPSON', 'Professional staffing solutions', '/images/DONALD THOMPSON-company.jpg'],
@@ -86,13 +86,13 @@ async function seed() {
 
   const jobs = [
     ['Designers', companyMap['Weblinx Solution'] || 1, 'Full Time/Permanent', '3 Year', '/images/designer-job.jpg'],
-    ['Weight Losss', companyMap['Demo Ten'] || 2, 'Dignissimos iusto ad', '4 months', '/images/weight-job.jpg'],
+    ['Weight Loss', companyMap['Demo Ten'] || 2, 'Contract', '4 months', '/images/weight-job.jpg'],
     ['Plumber', companyMap['Weblinx Solution'] || 1, 'Full-time', '3 Year', '/images/plumber-job.jpg'],
     ['Web Development', companyMap['VPN Alex Connor'] || 8, 'Full-time', '5 Years', '/images/web development-job.jpeg'],
     ['Full Stack Developer', companyMap['Eagan Dalton'] || 5, 'Full-time', '3 Year', '/images/fullstack developer-job.webp'],
     ['Frontend developer', companyMap['Eagan Dalton'] || 5, 'Full-time', '3 Year', '/images/frontend-developer-job.webp'],
     ['Devops Engineer', companyMap['Mohsin Employer'] || 6, 'Full-time', '3 Year', '/images/devops-engineer-job.png'],
-    ['Mri job', companyMap['DONALD THOMPSON'] || 7, 'Full-time', 'Entry', '/images/Mri-job.png'],
+    ['MRI Technician', companyMap['DONALD THOMPSON'] || 7, 'Full-time', 'Entry', '/images/Mri-job.png'],
   ];
 
   const jobStmt = db.prepare('INSERT INTO jobs (title, company_id, employment_type, experience, image) VALUES (?, ?, ?, ?, ?)');

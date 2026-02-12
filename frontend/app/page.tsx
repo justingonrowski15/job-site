@@ -163,7 +163,7 @@ export default function HomePage() {
                 color: '#1a1a1a',
               }}
             >
-              What Are User Says{' '}
+              What Our Users Say{' '}
               <span style={{ backgroundColor: '#e5e5e5', padding: '0 0.25rem' }}>Feedback</span>
             </h2>
             <TestimonialSlideshow />

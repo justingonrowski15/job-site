@@ -282,7 +282,7 @@ export default function RegisterPage() {
             </form>
 
             <p style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.9375rem' }}>
-              Have Account? <Link href="/login" style={{ fontWeight: 600 }}>Login</Link>
+              Already have an account? <Link href="/login" style={{ fontWeight: 600 }}>Login</Link>
             </p>
           </div>
         </section>
